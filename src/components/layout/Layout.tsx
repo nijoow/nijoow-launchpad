@@ -6,12 +6,12 @@ import Header from "./Header";
 import Nav from "./Nav";
 
 const MainDiv = tw.div`
-    flex-auto
+    flex-auto h-full
 `;
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="flex flex-col h-full min-h-screen bg-zinc-800">
       {" "}
       <Head>
         <title>nijoow-shop</title>
