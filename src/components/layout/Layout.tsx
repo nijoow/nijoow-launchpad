@@ -14,7 +14,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     <div className="flex flex-col h-full min-h-screen bg-zinc-800">
       {" "}
       <Head>
-        <title>nijoow-shop</title>
+        <title>nijoow-beatmaker</title>
       </Head>
       <Header />
       {/* <Nav /> */}
