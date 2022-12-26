@@ -4,14 +4,14 @@ import { useRouter } from "next/router";
 const Header = () => {
   const router = useRouter();
   return (
-    <div className="items-center w-full h-20 bg-zinc-700 grid grid-cols-12">
+    <div className="grid items-center w-full h-20 grid-cols-12 bg-zinc-700">
       <Link
         href="/"
-        className="col-span-2 flex items-center justify-center text-xl text-white"
+        className="flex items-center justify-center col-span-2 text-xl text-white"
       >
-        nijoow beatmaker
+        nijoow music
       </Link>
-      <div className="col-span-6 flex items-center px-8 gap-8">
+      <div className="flex items-center col-span-6 gap-8 px-20">
         <Link
           href="/launchpad"
           className={`${
