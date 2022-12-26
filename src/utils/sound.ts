@@ -1,10 +1,10 @@
-interface PianoSounds {
+interface Sounds {
   url: string;
   name: string;
   color: "W" | "B";
   keyCode: string;
 }
-export const pianoSounds: PianoSounds[] = [
+export const pianoSounds: Sounds[] = [
   {
     url: "/audio/piano/piano48.wav",
     name: "도",
@@ -220,5 +220,63 @@ export const pianoSounds: PianoSounds[] = [
     name: "시",
     color: "W",
     keyCode: "Enter",
+  },
+];
+
+export const drumSounds: Sounds[] = [
+  {
+    url: "/audio/basses/bass.wav",
+    name: "",
+    color: "W",
+    keyCode: "7",
+  },
+  {
+    url: "/audio/basses/dancehall-squirt.wav",
+    name: "",
+    color: "W",
+    keyCode: "8",
+  },
+  {
+    url: "/audio/basses/dirty-tone.wav",
+    name: "",
+    color: "W",
+    keyCode: "9",
+  },
+  {
+    url: "/audio/basses/subblart-2.wav",
+    name: "",
+    color: "W",
+    keyCode: "4",
+  },
+  {
+    url: "/audio/basses/subblart-3.wav",
+    name: "",
+    color: "W",
+    keyCode: "5",
+  },
+
+  {
+    url: "/audio/hats/ch.wav",
+    name: "",
+    color: "W",
+    keyCode: "6",
+  },
+  {
+    url: "/audio/hats/oh.wav",
+    name: "",
+    color: "W",
+    keyCode: "1",
+  },
+  {
+    url: "/audio/kicks/kick.wav",
+    name: "",
+    color: "W",
+    keyCode: "2",
+  },
+  {
+    url: "/audio/snares/snare.wav",
+    name: "",
+    color: "W",
+    keyCode: "3",
   },
 ];

@@ -35,7 +35,7 @@ const KeyPad = ({
   });
   const [clicked, setClicked] = useState(false);
   const bgColor =
-    color === "B" ? "bg-zinc-900 text-white" : "bg-white text-black";
+    color === "B" ? "bg-zinc-600 text-white" : "bg-white text-black";
   const [activeColor, setActiveColor] = useState("");
   const keyObj = { [keyCode]: false };
 
@@ -84,13 +84,13 @@ const KeyPad = ({
       onMouseDown={padOn}
       onMouseUp={padOff}
       onMouseLeave={padOff}
-      className={`relative col-span-2 flex items-center justify-center w-20 h-20 transition-all duration-75 cursor-pointer shadow-[inset_0_0px_5px_5px_rgba(0,0,0,0.3)] ${
+      className={`relative flex items-center justify-center w-24 h-24 transition-all duration-75 cursor-pointer shadow-[inset_0_0px_5px_5px_rgba(0,0,0,0.3)] ${
         clicked ? `${activeColor} text-black` : bgColor
       }`}
     >
-      <span className={`font-base`}>{name}</span>
-      <span className="absolute text-sm font-semibold bottom-1 right-3">
-        {keyCode}
+      <span className={`text-lg`}>{name}</span>
+      <span className="absolute text-base font-semibold bottom-1 right-3">
+        『{keyCode}』
       </span>
     </div>
   );
