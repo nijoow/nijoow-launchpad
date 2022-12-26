@@ -46,6 +46,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["postcss", "npm:8.4.20"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:ebf63e39c4d828101833a71af3e2521a2b2aae94f4f5e1a9937606eeb9ee758a66c2fa84079ccf171c5871e6c7b856d75bbb046f7bb44a7a7495b7986647b3c6#npm:18.2.0"],\
+            ["spotify-web-api-js", "npm:1.5.2"],\
             ["tailwindcss", "virtual:ebf63e39c4d828101833a71af3e2521a2b2aae94f4f5e1a9937606eeb9ee758a66c2fa84079ccf171c5871e6c7b856d75bbb046f7bb44a7a7495b7986647b3c6#npm:3.2.4"],\
             ["twin.macro", "virtual:ebf63e39c4d828101833a71af3e2521a2b2aae94f4f5e1a9937606eeb9ee758a66c2fa84079ccf171c5871e6c7b856d75bbb046f7bb44a7a7495b7986647b3c6#npm:3.1.0"],\
             ["typescript", "patch:typescript@npm%3A4.9.3#~builtin<compat/typescript>::version=4.9.3&hash=d73830"],\
@@ -3673,6 +3674,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["postcss", "npm:8.4.20"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:ebf63e39c4d828101833a71af3e2521a2b2aae94f4f5e1a9937606eeb9ee758a66c2fa84079ccf171c5871e6c7b856d75bbb046f7bb44a7a7495b7986647b3c6#npm:18.2.0"],\
+            ["spotify-web-api-js", "npm:1.5.2"],\
             ["tailwindcss", "virtual:ebf63e39c4d828101833a71af3e2521a2b2aae94f4f5e1a9937606eeb9ee758a66c2fa84079ccf171c5871e6c7b856d75bbb046f7bb44a7a7495b7986647b3c6#npm:3.2.4"],\
             ["twin.macro", "virtual:ebf63e39c4d828101833a71af3e2521a2b2aae94f4f5e1a9937606eeb9ee758a66c2fa84079ccf171c5871e6c7b856d75bbb046f7bb44a7a7495b7986647b3c6#npm:3.1.0"],\
             ["typescript", "patch:typescript@npm%3A4.9.3#~builtin<compat/typescript>::version=4.9.3&hash=d73830"],\
@@ -4621,6 +4623,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/source-map-js-npm-1.0.2-ee4f9f9b30-c049a7fc4d.zip/node_modules/source-map-js/",\
           "packageDependencies": [\
             ["source-map-js", "npm:1.0.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["spotify-web-api-js", [\
+        ["npm:1.5.2", {\
+          "packageLocation": "./.yarn/cache/spotify-web-api-js-npm-1.5.2-89c95ebe75-7ffaba350c.zip/node_modules/spotify-web-api-js/",\
+          "packageDependencies": [\
+            ["spotify-web-api-js", "npm:1.5.2"]\
           ],\
           "linkType": "HARD"\
         }]\
