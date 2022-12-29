@@ -8,6 +8,7 @@ import React, {
 import useSound from "use-sound";
 import _ from "lodash";
 import { loadComponents } from "next/dist/server/load-components";
+import { showTextStore } from "../../store/store";
 
 const randomColor = [
   "bg-white shadow-[inset_0_0_20px_20px_rgba(190,242,100,1),0_0_13px_13px_rgba(190,242,100,0.4)]",
@@ -29,6 +30,8 @@ const KeyPad = ({
   color: "W" | "B";
   keyCode: string;
 }) => {
+  const { showPitch, showKeyboard } = showTextStore((state) => state);
+
   const [play, { stop, sound }] = useSound(url, {
     interrupt: false,
     soundEnabled: true,
@@ -83,14 +86,30 @@ const KeyPad = ({
       onMouseDown={padOn}
       onMouseUp={padOff}
       onMouseLeave={padOff}
+      onTouchStart={padOn}
+      onTouchEnd={padOff}
       className={`relative flex items-center rounded-md justify-center w-24 h-24 transition-colors duration-75 cursor-pointer shadow-[inset_0_0px_8px_8px_rgba(0,0,0,0.3)] ${
         clicked ? `${activeColor} text-black` : bgColor
       }`}
     >
-      <span className={`text-lg`}>{name}</span>
-      <span className="absolute text-base font-semibold bottom-1 right-3">
-        『{keyCode}』
-      </span>
+      {showPitch && (
+        <span
+          className={`text-lg transition-all duration-75 ${
+            clicked ? "opacity-0" : "opacity-100"
+          }`}
+        >
+          {name}
+        </span>
+      )}
+      {showKeyboard && (
+        <span
+          className={`absolute text-base font-semibold bottom-1 right-3 ${
+            clicked ? "opacity-0" : "opacity-100"
+          }`}
+        >
+          『{keyCode}』
+        </span>
+      )}
     </div>
   );
 };
