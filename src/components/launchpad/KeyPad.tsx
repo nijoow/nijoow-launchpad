@@ -10,10 +10,10 @@ import _ from "lodash";
 import { loadComponents } from "next/dist/server/load-components";
 
 const randomColor = [
-  "bg-lime-300",
-  "bg-pink-300",
-  "bg-cyan-300",
-  "bg-purple-300",
+  "bg-white shadow-[inset_0_0_20px_20px_rgba(190,242,100,1),0_0_13px_13px_rgba(190,242,100,0.4)]",
+  "bg-white shadow-[inset_0_0_20px_20px_rgba(249,168,212,1),0_0_13px_13px_rgba(249,168,212,0.4)]",
+  "bg-white shadow-[inset_0_0_20px_20px_rgba(125,211,252,1),0_0_13px_13px_rgba(125,211,252,0.4)]",
+  "bg-white shadow-[inset_0_0_20px_20px_rgba(216,180,254,1),0_0_13px_13px_rgba(216,180,254,0.4)]",
 ];
 const randomNum = (min: number, max: number) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -35,7 +35,7 @@ const KeyPad = ({
   });
   const [clicked, setClicked] = useState(false);
   const bgColor =
-    color === "B" ? "bg-zinc-600 text-white" : "bg-white text-black";
+    color === "B" ? "bg-zinc-600 text-white" : "bg-zinc-200 text-black";
   const [activeColor, setActiveColor] = useState("");
   const keyObj = { [keyCode]: false };
 
@@ -61,7 +61,6 @@ const KeyPad = ({
   const keyUpHandler = (e: KeyboardEvent) => {
     if (e.key === keyCode || e.key.toLowerCase() === keyCode) {
       keyObj[keyCode] = false;
-
       padOff();
     }
   };
@@ -84,7 +83,7 @@ const KeyPad = ({
       onMouseDown={padOn}
       onMouseUp={padOff}
       onMouseLeave={padOff}
-      className={`relative flex items-center justify-center w-24 h-24 transition-all duration-75 cursor-pointer shadow-[inset_0_0px_5px_5px_rgba(0,0,0,0.3)] ${
+      className={`relative flex items-center rounded-md justify-center w-24 h-24 transition-colors duration-75 cursor-pointer shadow-[inset_0_0px_8px_8px_rgba(0,0,0,0.3)] ${
         clicked ? `${activeColor} text-black` : bgColor
       }`}
     >

@@ -20,7 +20,7 @@ const Header = () => {
               : "text-zinc-300"
           }`}
         >
-          LaunchPad
+          Launchpad
         </Link>{" "}
       </div>
     </div>
