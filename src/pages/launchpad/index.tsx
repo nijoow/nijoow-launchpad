@@ -75,7 +75,7 @@ const LaunchPad = () => {
           ))}{" "}
         {pad === "Drum" &&
           drumSounds.map((item, index) => (
-            <div className="col-span-4">
+            <div className="col-span-2">
               <KeyPad
                 url={item.url}
                 name={item.name}
