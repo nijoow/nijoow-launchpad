@@ -1,7 +1,6 @@
 export const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
 const REDIRECT_URI = "http://localhost:3000";
 const CLIENT_ID = "36fbd2a4d8d04b8fb398786dc8ef6939";
-4;
 
 export const ACCESS_URL = `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=token&show_dialog=true`;
 

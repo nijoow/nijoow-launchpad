@@ -25,6 +25,7 @@ const Home: NextPage = () => {
     if (_token) {
       setToken(hash.access_token);
       localStorage.setItem("spotify_token", _token);
+      spotify.setAccessToken(_token);
     }
   }, []);
   console.log(token);
@@ -34,7 +35,7 @@ const Home: NextPage = () => {
         {" "}
       </div>{" "}
       <div
-        className={`flex items-center justify-center col-span-10 gap-4 mx-auto w-fit transition-all `}
+        className={`flex relative items-center justify-center col-span-10 gap-4 mx-auto w-fit transition-all `}
       >
         {!token && (
           <Link
