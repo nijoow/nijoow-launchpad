@@ -86,10 +86,18 @@ const KeyPad = ({
       onMouseDown={padOn}
       onMouseUp={padOff}
       onMouseLeave={padOff}
-      onTouchStart={padOn}
-      onTouchEnd={padOff}
-      className={`relative flex items-center rounded-md justify-center w-24 h-24 transition-colors duration-75 cursor-pointer shadow-[inset_0_0px_8px_8px_rgba(0,0,0,0.3)] ${
-        clicked ? `${activeColor} text-black` : bgColor
+      onTouchStart={(e) => {
+        e.preventDefault();
+        padOn();
+      }}
+      onTouchEnd={(e) => {
+        e.preventDefault();
+        padOff();
+      }}
+      className={`relative flex items-center rounded-md justify-center w-24 h-24 transition-colors duration-75 cursor-pointer  ${
+        clicked
+          ? `${activeColor} text-black`
+          : `${bgColor} shadow-[inset_0_0px_8px_8px_rgba(0,0,0,0.3)]`
       }`}
     >
       {showPitch && (
