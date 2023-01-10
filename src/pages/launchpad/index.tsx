@@ -14,10 +14,10 @@ const LaunchPad = () => {
     }, 200);
   }, [pad]);
   return (
-    <div className="relative grid items-center justify-center w-full h-full grid-cols-12 overflow-hidden">
-      <div className="flex flex-col items-center w-full h-full col-span-2 gap-4 p-12 bg-zinc-700">
+    <div className="flex items-center w-full h-full gap-24">
+      <div className="flex flex-col items-end h-full gap-2 py-20 ml-auto  min-w-[10rem] text-zinc-300">
         <div
-          className={`cursor-pointer hover:text-white ${
+          className={`cursor-pointer hover:text-white p-1 ${
             pad === "Piano" ? "text-white" : "text-zinc-300"
           }`}
           onClick={() => {
@@ -32,7 +32,7 @@ const LaunchPad = () => {
           Piano
         </div>
         <div
-          className={`cursor-pointer hover:text-white ${
+          className={`cursor-pointer p-1 hover:text-white ${
             pad === "Drum" ? "text-white" : "text-zinc-300"
           }`}
           onClick={() => {
@@ -47,17 +47,9 @@ const LaunchPad = () => {
           Drum
         </div>
       </div>
-      <div className="absolute flex flex-col items-end gap-2 text-zinc-300 top-10 right-20">
-        <button className="p-1" onClick={toggleShowPitch}>
-          {showPitch ? "PITCH TEXT OFF" : "PITCH TEXT ON"}
-        </button>
-        <button className="p-1" onClick={toggleShowKeyboard}>
-          {showKeyboard ? "KEYBOARD TEXT OFF" : "KEYBOARD TEXT ON"}
-        </button>
-      </div>
 
       <div
-        className={` grid items-center justify-center grid-cols-12 opaci col-span-10 gap-4 mx-auto w-fit transition-all ${
+        className={`grid items-center justify-center grid-cols-12 gap-4 w-fit transition-all ${
           animation ? "scale-50 opacity-0" : "scale-100 opacity-100"
         }`}
       >
@@ -85,6 +77,14 @@ const LaunchPad = () => {
               />
             </div>
           ))}
+      </div>
+      <div className="flex flex-col items-end h-full gap-2 py-20 mr-auto min-w-[10rem] text-zinc-300">
+        <button className="p-1" onClick={toggleShowPitch}>
+          {showPitch ? "PITCH TEXT OFF" : "PITCH TEXT ON"}
+        </button>
+        <button className="p-1" onClick={toggleShowKeyboard}>
+          {showKeyboard ? "KEYBOARD TEXT OFF" : "KEYBOARD TEXT ON"}
+        </button>
       </div>
     </div>
   );
