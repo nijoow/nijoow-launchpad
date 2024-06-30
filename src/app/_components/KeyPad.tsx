@@ -1,18 +1,16 @@
-import _ from 'lodash';
+import { cn } from '@/utils/cn';
+import { generateRandomNumber } from '@/utils/generateRandomNumber';
+import { isMobile } from '@/utils/isMobile';
 import { useEffect, useState } from 'react';
 import useSound from 'use-sound';
 import { showTextStore } from '../../store/store';
 
 const randomColor = [
-  'bg-white shadow-[inset_0_0_20px_20px_rgba(190,242,100,1),0_0_13px_13px_rgba(190,242,100,0.4)]',
-  'bg-white shadow-[inset_0_0_20px_20px_rgba(249,168,212,1),0_0_13px_13px_rgba(249,168,212,0.4)]',
-  'bg-white shadow-[inset_0_0_20px_20px_rgba(125,211,252,1),0_0_13px_13px_rgba(125,211,252,0.4)]',
-  'bg-white shadow-[inset_0_0_20px_20px_rgba(216,180,254,1),0_0_13px_13px_rgba(216,180,254,0.4)]',
-];
-
-const randomNum = (min: number, max: number) => {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-};
+  'shadow-[inset_0_0_20px_20px_rgba(190,242,100,1),0_0_13px_13px_rgba(190,242,100,0.4)]',
+  'shadow-[inset_0_0_20px_20px_rgba(249,168,212,1),0_0_13px_13px_rgba(249,168,212,0.4)]',
+  'shadow-[inset_0_0_20px_20px_rgba(125,211,252,1),0_0_13px_13px_rgba(125,211,252,0.4)]',
+  'shadow-[inset_0_0_20px_20px_rgba(216,180,254,1),0_0_13px_13px_rgba(216,180,254,0.4)]',
+].map(color => `${color} bg-white`);
 
 const KeyPad = ({
   url,
@@ -33,13 +31,10 @@ const KeyPad = ({
   });
 
   const [clicked, setClicked] = useState(false);
-  const bgColor =
-    color === 'B' ? 'bg-zinc-600 text-white' : 'bg-zinc-200 text-black';
   const [activeColor, setActiveColor] = useState('');
-  const keyObj = { [keyCode]: false };
 
   useEffect(() => {
-    setActiveColor(randomColor[randomNum(0, 3)]);
+    setActiveColor(randomColor[generateRandomNumber(0, 3)]);
   }, [clicked]);
 
   useEffect(() => {
@@ -59,23 +54,20 @@ const KeyPad = ({
 
   const keyUpHandler = (e: KeyboardEvent) => {
     if (e.key === keyCode || e.key.toLowerCase() === keyCode) {
-      keyObj[keyCode] = false;
       padOff();
     }
   };
 
   const padOn = () => {
     setClicked(true);
-    if (!keyObj[keyCode]) {
-      stop();
-      play();
-    }
-    keyObj[keyCode] = true;
+
+    stop();
+    play();
   };
 
-  const padOff = _.debounce(() => {
+  const padOff = () => {
     setClicked(false);
-  }, 0);
+  };
 
   return (
     <div
@@ -89,26 +81,35 @@ const KeyPad = ({
         e.preventDefault();
         padOff();
       }}
-      className={`relative flex aspect-square w-full cursor-pointer items-center justify-center rounded-md transition-colors duration-75 ${
-        clicked
-          ? `${activeColor} text-black`
-          : `${bgColor} shadow-[inset_0_0px_8px_8px_rgba(0,0,0,0.3)]`
-      }`}
+      className={cn(
+        `relative flex aspect-square w-full cursor-pointer items-center justify-center rounded-md transition-colors duration-75`,
+        {
+          [`${activeColor} text-black`]: clicked,
+          'shadow-[inset_0_0px_8px_8px_rgba(0,0,0,0.3)]': !clicked,
+          'bg-zinc-600 text-white': !clicked && color === 'B',
+          'bg-zinc-200 text-black': !clicked && color === 'W',
+        },
+      )}
     >
       {showPitch && (
         <span
-          className={`text-sm transition-all duration-75 sm:text-lg ${
-            clicked ? 'opacity-0' : 'opacity-100'
-          }`}
+          className={cn(`text-sm transition-all duration-75 sm:text-lg`, {
+            'opacity-0': clicked,
+            'opacity-100': !clicked,
+          })}
         >
           {name}
         </span>
       )}
-      {showKeyboard && (
+      {!isMobile() && showKeyboard && (
         <span
-          className={`absolute bottom-[3%] right-[10%] text-[10px] font-semibold sm:text-base ${
-            clicked ? 'opacity-0' : 'opacity-100'
-          }`}
+          className={cn(
+            `absolute bottom-[3%] right-[10%] text-[10px] font-semibold sm:text-base`,
+            {
+              'opacity-0': clicked,
+              'opacity-100': !clicked,
+            },
+          )}
         >
           『{keyCode}』
         </span>
