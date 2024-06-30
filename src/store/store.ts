@@ -1,4 +1,4 @@
-import create from "zustand";
+import create from 'zustand';
 
 interface ShowTextState {
   showPitch: boolean;
@@ -6,10 +6,10 @@ interface ShowTextState {
   showKeyboard: boolean;
   toggleShowKeyboard: () => void;
 }
-export const showTextStore = create<ShowTextState>((set) => ({
+export const showTextStore = create<ShowTextState>(set => ({
   showPitch: true,
-  toggleShowPitch: () => set((state) => ({ showPitch: !state.showPitch })),
+  toggleShowPitch: () => set(state => ({ showPitch: !state.showPitch })),
   showKeyboard: true,
   toggleShowKeyboard: () =>
-    set((state) => ({ showKeyboard: !state.showKeyboard })),
+    set(state => ({ showKeyboard: !state.showKeyboard })),
 }));
