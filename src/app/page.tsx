@@ -83,7 +83,7 @@ export default function Home() {
       >
         {pad === 'Piano' &&
           pianoSounds.map(item => (
-            <div className="col-span-2" key={item.keyCode}>
+            <div className="col-span-2" key={item.url}>
               <KeyPad
                 url={item.url}
                 name={item.name}
@@ -94,7 +94,7 @@ export default function Home() {
           ))}{' '}
         {pad === 'Drum' &&
           drumSounds.map(item => (
-            <div className="col-span-2" key={item.keyCode}>
+            <div className="col-span-2" key={item.url}>
               <KeyPad
                 url={item.url}
                 name={item.name}
