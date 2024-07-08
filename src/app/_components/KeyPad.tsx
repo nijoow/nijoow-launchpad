@@ -21,7 +21,7 @@ const KeyPad = ({
   url: string;
   name: string;
   color: 'W' | 'B';
-  keyCode: string;
+  keyCode: string[];
 }) => {
   const { showPitch, showKeyboard } = showTextStore(state => state);
 
@@ -47,13 +47,13 @@ const KeyPad = ({
   }, [sound]);
 
   const keyDownHandler = (e: KeyboardEvent) => {
-    if (e.key === keyCode || e.key.toLowerCase() === keyCode) {
+    if (keyCode.includes(e.key) || keyCode.includes(e.key.toLowerCase())) {
       padOn();
     }
   };
 
   const keyUpHandler = (e: KeyboardEvent) => {
-    if (e.key === keyCode || e.key.toLowerCase() === keyCode) {
+    if (keyCode.includes(e.key) || keyCode.includes(e.key.toLowerCase())) {
       padOff();
     }
   };
@@ -111,7 +111,7 @@ const KeyPad = ({
             },
           )}
         >
-          『{keyCode}』
+          『{keyCode[0]}』
         </span>
       )}
     </div>
